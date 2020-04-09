@@ -122,14 +122,8 @@ end restartCheckout
 -- 1. Welcome message w/ instructions & disclaimer
 display dialog welcomeMsg with title "Welcome" with icon stop buttons {"Cancel", "Continue"} default button "Continue"
 
--- 2. Prompt whether to ignore oos or wait for user to review
-display dialog ignoreOosPromptMsg buttons {"Cancel", "A. Keep looking for slots", "B. Wait for me to review"} default button "A. Keep looking for slots" with title "Ignore Out Of Stock?" with icon note
-
-if result = {button returned:"A. Keep looking for slots"} then
-	set auto_ignore_oos to true
-else if result = {button returned:"B. Wait for me to review"} then
-	set auto_ignore_oos to false
-end if
+-- 2. Use oos 
+set auto_ignore_oos to true
 
 display dialog javascriptPermissionMsg with title "More access needed" buttons {"End Script", "Done"} with icon stop default button "Done"
 if result = {button returned:"Done"} then
